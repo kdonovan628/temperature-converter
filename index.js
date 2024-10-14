@@ -4,11 +4,11 @@
 //create function caleld describeTemperature which takes F temp and returns description
 //send alert to user including: F temp, C temp, and description message
 
-function convertToCelsius(fahrenheitTemp){
+const convertToCelsius=(fahrenheitTemp) => {
   return fahrenheitTemp -32*(5/9)
 }
 
-function createMessage(fahrenheit, celsius){
+const createMessage=(fahrenheit, celsius) => {
   let message = '';
   const numFahrenheit = fahrenheit * 1;
 
@@ -31,5 +31,6 @@ let inputFahrenheit = prompt(`Enter current temperature in Fahrenheit. We will c
 let convertedTemp = convertToCelsius(inputFahrenheit);
 let output = createMessage(inputFahrenheit, convertedTemp);
 console.log(output);
+
 
 
