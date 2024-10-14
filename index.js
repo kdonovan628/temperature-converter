@@ -5,33 +5,27 @@
 // create function called describeTemperature which takes F temp and returns description
 // send alert to user including: F temp, C temp, and description message
 
+const inputFahrenheit = prompt (`Enter current temperature in Fahrenheit. We will convert that number to Celsius.`)
+
 const convertToCelsius=(fahrenheitTemp) => {
-  return fahrenheitTemp -32*(5/9)
+  const fahrAsNum = Number (fahrenheitTemp);
+  const celsiusTemp = (fahrAsNum -32)*(5/9)
+  return celsiusTemp;
 }
 
-const describeTemperature=(fahrenheit, celsius) => {
-  let message = '';
-  const numFahrenheit = fahrenheit * 1;
-
-  if(numFahrenheit <=32) {
-    alert(`You put ${inputFahrenheit} degrees Fahrenheit, that is equal to ${convertedTemp} degrees Celcius. Brr...very cold!`)
-    } else if(numFahrenheit <=64 && numFahrenheit >32) {
-    alert(`You put ${inputFahrenheit} degrees Fahrenheit, that is equal to ${convertedTemp} degrees Celcius. Pretty darned cold.`)
-    } else if(numFahrenheit <=86 && numFahrenheit >64) {
-    alert(`You put ${inputFahrenheit} degrees Fahrenheit, that is equal to ${convertedTemp} degrees Celcius. Not too hot, not too cold.`)
-    } else if(numFahrenheit <=100 && numFahrenheit >86) {
-    alert(`You put ${inputFahrenheit} degrees Fahrenheit, that is equal to ${convertedTemp} degrees Celcius. Getting hot out there!`)
-    } else if(numFahrenheit >=100) {
-    alert(`You put ${inputFahrenheit} degrees Fahrenheit, that is equal to ${convertedTemp} degrees Celcius. Ridiculously hot.`)
-    }
-
-    return `${fahrenheit} Fahrenheit is ${celsius} in Celcius. ${alert}`;
+const describeTemperature=(fahrTemp) => {
+  if(fahrTemp <=32) {
+    return `very cold.`;
+    } else if(fahrTemp <=64 && fahrTemp >32) {
+    return `cold.`;
+    } else if(fahrTemp <=86 && fahrTemp >64) {
+    return `warm.`;
+    } else if(fahrTemp <=100 && fahrTemp >86) {
+    return `hot.`;
+    } else {
+    return `very hot.`;
+}
 }
 
-let inputFahrenheit = prompt(`Enter current temperature in Fahrenheit. We will convert that number to Celsius.`);
-let convertedTemp = convertToCelsius(inputFahrenheit);
-let output = describeTemperature(inputFahrenheit, convertedTemp);
-console.log(output);
-
-
+alert(`You entered ${inputFahrenheit} degrees Fahrenheit. That converts to ${convertToCelsius(inputFahrenheit)} degrees Celsius. That feels ${describeTemperature(inputFahrenheit)}`)
 
